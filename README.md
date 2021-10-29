@@ -18,13 +18,12 @@ This project uses Swift Package Manager [SPM](https://swift.org/package-manager/
 
 ## Functionality
 - Select recipes upto 5
-
-![](Functionality/recipes_selected.png)
+<br>
+<img src = "README Files/recipes_selected.png" width = 600>
 
 - List of Recipes
-
-![](Functionality/recipies_selected.png)
-
+<br>
+<img src = "README Files/recipes.png" width = 600>
 
 ## Getting Started
 ### Getting the project
