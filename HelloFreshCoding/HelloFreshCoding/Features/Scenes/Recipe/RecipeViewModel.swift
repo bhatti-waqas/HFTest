@@ -67,4 +67,10 @@ final class RecipeViewModel: BaseViewModel {
         }
         self.delegate?.onViewModelNeedsUpdate(self)
     }
+    
+    //its helping us for testcases
+    public func setRecipeViewModels(viewModels: [RecipeRowViewModel]) {
+        self.recipeRowViewModels.removeAll()
+        self.recipeRowViewModels = viewModels
+    }
 }
