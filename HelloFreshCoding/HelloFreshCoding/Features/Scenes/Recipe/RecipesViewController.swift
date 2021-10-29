@@ -12,7 +12,7 @@ final class RecipesViewController: UITableViewController {
     // MARK:- Private Properties
     private let viewModel: RecipeViewModel
 //    private lazy var dataSource = makeDataSource()
-
+    private let spinner = UIActivityIndicatorView(style: .large)
     // MARK:- Init
     init?(coder: NSCoder, viewModel: RecipeViewModel) {
         self.viewModel = viewModel
@@ -32,10 +32,14 @@ final class RecipesViewController: UITableViewController {
     
     private func configureUI() {
         self.title = viewModel.screenTitle
+        spinner.hidesWhenStopped = true
+        spinner.startAnimating()
+        tableView.backgroundView = spinner
     }
     
     private func reload() {
         Run.onMainThread {
+            self.spinner.stopAnimating()
             self.tableView.reloadData()
         }
     }
