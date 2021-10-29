@@ -60,8 +60,3 @@ extension NetworkError: Equatable {
     return lhs.statusCode == rhs.statusCode
   }
 }
-
-// MARK: - Custom Error
-public struct CustomError: Error {
-  let message: String
-}

@@ -18,9 +18,9 @@ final class RecipeViewControllersFactory {
     }
     
     // MARK:- Public Methods
-    func makeRecipeViewController() -> RecipesViewController {
+    func makeRecipeViewController(navigator: RecipeCoordinator) -> RecipesViewController {
         let storyboard = UIStoryboard(name: .recipe)
-        let viewModel = RecipeViewModel(with: recipeUseCase)
+        let viewModel = RecipeViewModel(with: recipeUseCase, navigator: navigator)
         let viewController = storyboard.instantiateInitialViewController {
             RecipesViewController(coder: $0, viewModel: viewModel)
         }

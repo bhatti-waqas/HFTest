@@ -15,12 +15,13 @@ final class RecipeViewModel: BaseViewModel {
 
     let screenTitle = "Recipes"
     private let recipeUseCase: RecipeUseCase
+    private unowned let navigator: RecipeCoordinator
     private var recipeRowViewModels: [RecipeRowViewModel] = []
     
-    //var recipes: [Recipe] = []
     
-    init(with useCase: RecipeUseCase) {
+    init(with useCase: RecipeUseCase, navigator: RecipeCoordinator) {
         self.recipeUseCase = useCase
+        self.navigator = navigator
     }
     
     override func load(with delegate: BaseViewModelDelegate) {

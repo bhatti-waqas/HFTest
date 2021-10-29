@@ -25,7 +25,6 @@ final class RecipesViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        tableView.dataSource = dataSource
         configureUI()
         viewModel.load(with: self)
     }
@@ -61,7 +60,7 @@ final class RecipesViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.switchRecipeSelection(at: indexPath.row)
-        //reload()
+        tableView.reloadRows(at: [indexPath], with: .none)
     }
     
 }
@@ -75,11 +74,11 @@ extension RecipesViewController: BaseViewModelDelegate {
     
     func onViewModelError(_ viewModel: BaseViewModel, error: Error) {
         //throw error
+        presentAlert(error.localizedDescription)
     }
     
     func onViewModelNeedsUpdate(_ viewModel: BaseViewModel) {
         //needs to udpate
-        self.reload()
     }
 }
 

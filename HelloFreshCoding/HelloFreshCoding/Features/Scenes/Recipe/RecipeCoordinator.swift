@@ -11,8 +11,7 @@ final class RecipeCoordinator: BaseCoordinator<AppNavigationController> {
     
     override func start() {
         let factory = ServiceLocator.recipeViewControllersFactory()
-        let recipeViewController = factory.makeRecipeViewController()
-        recipeViewController.title = "Recipes"
+        let recipeViewController = factory.makeRecipeViewController(navigator: self)
         rootViewController.pushViewController(recipeViewController, animated: true)
     }
 }

@@ -21,8 +21,6 @@
 		77C4AEA22729E1D5002DDE82 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C4AEA12729E1D5002DDE82 /* SceneDelegate.swift */; };
 		77C4AEA92729E1D8002DDE82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77C4AEA82729E1D8002DDE82 /* Assets.xcassets */; };
 		77C4AEAC2729E1D8002DDE82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77C4AEAA2729E1D8002DDE82 /* LaunchScreen.storyboard */; };
-		77C4AEC12729E1D8002DDE82 /* HelloFreshCodingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C4AEC02729E1D8002DDE82 /* HelloFreshCodingUITests.swift */; };
-		77C4AEC32729E1D8002DDE82 /* HelloFreshCodingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C4AEC22729E1D8002DDE82 /* HelloFreshCodingUITestsLaunchTests.swift */; };
 		77C4AED72729E3C2002DDE82 /* Recipe.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77C4AED62729E3C2002DDE82 /* Recipe.storyboard */; };
 		77C4AED92729EA2C002DDE82 /* RecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C4AED82729EA2C002DDE82 /* RecipesViewController.swift */; };
 		77C4AEDC2729EB48002DDE82 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C4AEDB2729EB48002DDE82 /* UIStoryboard+Extension.swift */; };
@@ -47,6 +45,7 @@
 		77EA4542272C0A4000F84362 /* NetworkServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EA4541272C0A4000F84362 /* NetworkServiceMock.swift */; };
 		77EA4547272C0F1E00F84362 /* Recipes.json in Resources */ = {isa = PBXBuildFile; fileRef = 77EA4546272C0F1E00F84362 /* Recipes.json */; };
 		77EA4549272C126500F84362 /* RecipeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EA4548272C126500F84362 /* RecipeViewControllerTests.swift */; };
+		77EA454B272C217B00F84362 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EA454A272C217B00F84362 /* UIViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,8 +83,6 @@
 		77C4AEAD2729E1D8002DDE82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77C4AEB22729E1D8002DDE82 /* HelloFreshCodingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HelloFreshCodingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		77C4AEBC2729E1D8002DDE82 /* HelloFreshCodingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HelloFreshCodingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		77C4AEC02729E1D8002DDE82 /* HelloFreshCodingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloFreshCodingUITests.swift; sourceTree = "<group>"; };
-		77C4AEC22729E1D8002DDE82 /* HelloFreshCodingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloFreshCodingUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		77C4AED62729E3C2002DDE82 /* Recipe.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Recipe.storyboard; sourceTree = "<group>"; };
 		77C4AED82729EA2C002DDE82 /* RecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewController.swift; sourceTree = "<group>"; };
 		77C4AEDB2729EB48002DDE82 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
@@ -110,6 +107,7 @@
 		77EA4541272C0A4000F84362 /* NetworkServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceMock.swift; sourceTree = "<group>"; };
 		77EA4546272C0F1E00F84362 /* Recipes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Recipes.json; sourceTree = "<group>"; };
 		77EA4548272C126500F84362 /* RecipeViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewControllerTests.swift; sourceTree = "<group>"; };
+		77EA454A272C217B00F84362 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,7 +166,6 @@
 			children = (
 				77C4AE9E2729E1D5002DDE82 /* HelloFreshCoding */,
 				77C4AEB52729E1D8002DDE82 /* HelloFreshCodingTests */,
-				77C4AEBF2729E1D8002DDE82 /* HelloFreshCodingUITests */,
 				77C4AE9D2729E1D5002DDE82 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -201,20 +198,11 @@
 		77C4AEB52729E1D8002DDE82 /* HelloFreshCodingTests */ = {
 			isa = PBXGroup;
 			children = (
+				77EA453D272C090800F84362 /* UnitTests */,
 				77EA4543272C0EDA00F84362 /* Responses */,
 				77EA4540272C0A2000F84362 /* Mocks */,
-				77EA453D272C090800F84362 /* UnitTests */,
 			);
 			path = HelloFreshCodingTests;
-			sourceTree = "<group>";
-		};
-		77C4AEBF2729E1D8002DDE82 /* HelloFreshCodingUITests */ = {
-			isa = PBXGroup;
-			children = (
-				77C4AEC02729E1D8002DDE82 /* HelloFreshCodingUITests.swift */,
-				77C4AEC22729E1D8002DDE82 /* HelloFreshCodingUITestsLaunchTests.swift */,
-			);
-			path = HelloFreshCodingUITests;
 			sourceTree = "<group>";
 		};
 		77C4AECF2729E1F4002DDE82 /* AppRoot */ = {
@@ -269,6 +257,7 @@
 				776BECFD272AB290001A1688 /* Int.swift */,
 				776BED02272AB6E9001A1688 /* UIImageView.swift */,
 				776BED06272ABCE1001A1688 /* Array.swift */,
+				77EA454A272C217B00F84362 /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -536,6 +525,7 @@
 				776BED0C272ACACC001A1688 /* RecipeViewControllerFactory.swift in Sources */,
 				77C4AEE22729ED41002DDE82 /* RecipeTableViewCell.swift in Sources */,
 				77C4AF06272AAA76002DDE82 /* RecipeViewModel.swift in Sources */,
+				77EA454B272C217B00F84362 /* UIViewController+Extension.swift in Sources */,
 				77C4AEE02729ED05002DDE82 /* UITableViewCell.swift in Sources */,
 				77C4AEEA272A98CE002DDE82 /* BaseCoordinator.swift in Sources */,
 				776BED05272AB804001A1688 /* AppCoordinator.swift in Sources */,
@@ -572,8 +562,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77C4AEC32729E1D8002DDE82 /* HelloFreshCodingUITestsLaunchTests.swift in Sources */,
-				77C4AEC12729E1D8002DDE82 /* HelloFreshCodingUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -733,6 +721,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -759,6 +748,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

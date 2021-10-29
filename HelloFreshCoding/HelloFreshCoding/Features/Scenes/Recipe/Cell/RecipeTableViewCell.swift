@@ -9,17 +9,18 @@ import UIKit
 
 final class RecipeTableViewCell: UITableViewCell {
     //MARK:- private properties
-    @IBOutlet weak var containerView: UIView!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var headlineLabel: UILabel!
     @IBOutlet private weak var durationLabel: UILabel!
     @IBOutlet private weak var recipeImageview: UIImageView!
     
+    @IBOutlet weak var containerView: UIView!
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         containerView.layer.cornerRadius = 16
         containerView.layer.masksToBounds = true
-        containerView.layer.borderColor = UIColor.green.cgColor
+        containerView.layer.borderColor = UIColor(hex: 006432).cgColor
     }
     
     //MARK:- public methods
@@ -28,7 +29,7 @@ final class RecipeTableViewCell: UITableViewCell {
     }
     
     func configureSelected() {
-        containerView.layer.borderWidth = 2
+        containerView.layer.borderWidth = 1
     }
     
     func configure(with viewModel: RecipeRowViewModel) {
