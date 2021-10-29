@@ -11,8 +11,8 @@ final class RecipesViewController: UITableViewController {
     
     // MARK:- Private Properties
     private let viewModel: RecipeViewModel
-//    private lazy var dataSource = makeDataSource()
     private let spinner = UIActivityIndicatorView(style: .large)
+    
     // MARK:- Init
     init?(coder: NSCoder, viewModel: RecipeViewModel) {
         self.viewModel = viewModel
@@ -68,12 +68,11 @@ final class RecipesViewController: UITableViewController {
 extension RecipesViewController: BaseViewModelDelegate {
     
     func onViewModelReady(_ viewModel: BaseViewModel) {
-        //update(with: self.viewModel.getRecipeRowViewModels())
         self.reload()
     }
     
     func onViewModelError(_ viewModel: BaseViewModel, error: Error) {
-        //throw error
+        //handle error
         presentAlert(error.localizedDescription)
     }
     
@@ -82,28 +81,3 @@ extension RecipesViewController: BaseViewModelDelegate {
     }
 }
 
-//MARK: TableView Datasource
-//fileprivate extension RecipesViewController {
-//    enum Section: CaseIterable {
-//        case recipes
-//    }
-//
-//    private func makeDataSource() -> UITableViewDiffableDataSource<Section, RecipeRowViewModel> {
-//        return UITableViewDiffableDataSource(
-//            tableView: tableView,
-//            cellProvider: {  tableView, indexPath, recipeRowViewModel in
-//                let cell: RecipeTableViewCell = tableView.dequeue(for: indexPath)
-//                cell.configure(with: recipeRowViewModel)
-//                return cell
-//            })
-//    }
-//
-//    private func update(with recipes: [RecipeRowViewModel], animate: Bool = true) {
-//        Run.onMainThread {
-//            var snapshot = NSDiffableDataSourceSnapshot<Section, RecipeRowViewModel>()
-//            snapshot.appendSections(Section.allCases)
-//            snapshot.appendItems(recipes, toSection: .recipes)
-//            self.dataSource.apply(snapshot, animatingDifferences: animate)
-//        }
-//    }
-//}

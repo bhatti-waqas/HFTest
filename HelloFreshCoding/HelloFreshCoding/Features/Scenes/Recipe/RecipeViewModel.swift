@@ -7,6 +7,18 @@
 
 import Foundation
 
+public enum SelectionError: LocalizedError {
+    // Error cases
+    case maxLimitReached
+    
+    public var errorDescription: String? {
+        switch self {
+        case .maxLimitReached:
+            return "You can select only upto 5 recipes."
+        }
+    }
+}
+
 final class RecipeViewModel: BaseViewModel {
     
     private struct Config {
@@ -44,7 +56,7 @@ final class RecipeViewModel: BaseViewModel {
         .init(id: recipe.id, name: recipe.name, headline: recipe.headline, image: recipe.image, preparationMinutes: recipe.preparationMinutes)
     }
     
-    private func canSelect() -> Bool {
+    public func canSelectRecipe() -> Bool {
         let selectedRecipes = recipeRowViewModels.filter{ $0.selctionState == .selected }
         return selectedRecipes.count < Config.maxSelectionAllowed
     }
@@ -63,7 +75,10 @@ final class RecipeViewModel: BaseViewModel {
         if rowViewModel.selctionState == .selected {
             rowViewModel.selctionState = .unselected
         } else {
-            guard canSelect() else { return }
+            guard canSelectRecipe() else {
+                delegate?.onViewModelError(self, error: SelectionError.maxLimitReached)
+                return
+            }
             rowViewModel.selctionState = .selected
         }
         self.delegate?.onViewModelNeedsUpdate(self)
@@ -75,3 +90,6 @@ final class RecipeViewModel: BaseViewModel {
         self.recipeRowViewModels = viewModels
     }
 }
+
+
+                    
