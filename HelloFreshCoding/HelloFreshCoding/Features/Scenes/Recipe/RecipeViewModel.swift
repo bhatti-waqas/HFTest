@@ -56,7 +56,7 @@ final class RecipeViewModel: BaseViewModel {
         .init(id: recipe.id, name: recipe.name, headline: recipe.headline, image: recipe.image, preparationMinutes: recipe.preparationMinutes)
     }
     
-    public func canSelectRecipe() -> Bool {
+    private func canSelectRecipe() -> Bool {
         let selectedRecipes = recipeRowViewModels.filter{ $0.selctionState == .selected }
         return selectedRecipes.count < Config.maxSelectionAllowed
     }
@@ -76,9 +76,10 @@ final class RecipeViewModel: BaseViewModel {
             rowViewModel.selctionState = .unselected
         } else {
             guard canSelectRecipe() else {
-                delegate?.onViewModelError(self, error: SelectionError.maxLimitReached)
+                self.throwError(with: SelectionError.maxLimitReached)
                 return
             }
+            
             rowViewModel.selctionState = .selected
         }
         self.delegate?.onViewModelNeedsUpdate(self)
