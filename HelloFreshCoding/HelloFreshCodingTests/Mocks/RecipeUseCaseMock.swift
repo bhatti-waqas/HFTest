@@ -7,7 +7,7 @@
 
 @testable import HelloFreshCoding
 
-final class RecipeUseCaesMock: RecipeUseCase {
+final class RecipeUseCaseMock: RecipeUseCase {
     var fetchRecipesResult: Result<[Recipe], Error> = .failure(NetworkError.notFound)
     
     func fetchRecipes(then completion: @escaping Completion) {

@@ -65,7 +65,7 @@ final class RecipeViewModel {
         return selectedRecipes.count
     }
     
-    public func switchRecipeSelection(at index: Int) {
+    public func recipeDidSelect(at index: Int) {
         let rowViewModel = recipeRowViewModels[index]
         if rowViewModel.selectionState == .selected {
             rowViewModel.selectionState = .unselected
@@ -76,11 +76,12 @@ final class RecipeViewModel {
             }
             rowViewModel.selectionState = .selected
         }
-        self.delegate?.onViewModelNeedsUpdate(at: index)
+        let indexPath = IndexPath(item: index, section: 0)
+        self.delegate?.onViewModelNeedsUpdate(at: indexPath)
     }
     
     public func throwError(with error: Error) {
-        //In some cases we are receving errors from background threads.
+        //In some cases we are receiving errors from background threads.
         //We need to make sure we use main thread since we are going to interact with UI
         Run.onMainThread {
             self.loading = false

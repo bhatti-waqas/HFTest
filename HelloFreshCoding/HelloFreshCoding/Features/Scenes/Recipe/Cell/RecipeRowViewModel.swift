@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SelecttionState {
+enum SelectionState {
     case selected
     case unselected
 }
@@ -18,9 +18,9 @@ final class RecipeRowViewModel {
     let headline: String
     let image: String
     let preparationMinutes: Int
-    var selectionState: SelecttionState
+    var selectionState: SelectionState
     
-    init(id: String, name: String, headline: String, image: String, preparationMinutes: Int, selectionState: SelecttionState = .unselected) {
+    init(id: String, name: String, headline: String, image: String, preparationMinutes: Int, selectionState: SelectionState = .unselected) {
         self.id = id
         self.name = name
         self.headline = headline

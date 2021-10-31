@@ -12,4 +12,3 @@ extension UITableView {
         return self.dequeueReusableCell(withIdentifier: T.cellIdentifier, for: indexPath) as! T
     }
 }
-

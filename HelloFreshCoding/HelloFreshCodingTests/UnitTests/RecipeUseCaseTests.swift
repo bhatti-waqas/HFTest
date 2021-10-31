@@ -36,7 +36,7 @@ final class RecipeUseCaseTests: XCTestCase {
         }
     }
     
-    func test_fetchRecipesFailes_onNetworkError() {
+    func test_fetchRecipesFails_onNetworkError() {
         // Given
         var result: Result<[Recipe], Error>!
         let expectation = self.expectation(description: "Recipes")

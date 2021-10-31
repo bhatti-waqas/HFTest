@@ -22,8 +22,8 @@ extension NetworkRecipeUseCase: RecipeUseCase {
         
         networkService.fetch(APIURLs.recipesUrl) { (response:Result<[Recipe],Error>) in
             switch response {
-            case .success(let recipies):
-                completion(.success(recipies))
+            case .success(let recipes):
+                completion(.success(recipes))
             case .failure(let error):
                 completion(.failure(error))
             }

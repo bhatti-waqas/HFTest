@@ -59,7 +59,7 @@ final class RecipesViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.switchRecipeSelection(at: indexPath.row)
+        viewModel.recipeDidSelect(at: indexPath.row)
     }
     
 }
@@ -74,8 +74,7 @@ extension RecipesViewController: RecipeViewModelDelegate {
         presentAlert(error.localizedDescription)
     }
     
-    func onViewModelNeedsUpdate(at index: Int) {
-        let indexPath = IndexPath(item: index, section: 0)
+    func onViewModelNeedsUpdate(at indexPath: IndexPath) {
         self.tableView.reloadRows(at: [indexPath], with: .none)
     }
 }

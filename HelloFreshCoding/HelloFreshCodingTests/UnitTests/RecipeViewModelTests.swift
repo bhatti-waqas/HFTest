@@ -9,14 +9,14 @@ import XCTest
 
 final class RecipeViewModelTests: XCTestCase {
     private let navigator = RecipeNavigatorMock()
-    private var isReadyStatetriggered: Bool = false
-    private var isErrorStatetriggered: Bool = false
+    private var isReadyStateTriggered: Bool = false
+    private var isErrorStateTriggered: Bool = false
     private let errorStateExpectation = XCTestExpectation(description: "Should have error Sate")
     private let readyStateExpectation = XCTestExpectation(description: "Should have ready Sate")
     
     func test_when_fetchingFailed_shouldHaveError() {
         //1. given
-        let useCase =  RecipeUseCaesMock()
+        let useCase = RecipeUseCaseMock()
         let viewModel = RecipeViewModel(with: useCase, navigator: navigator)
         viewModel.delegate = self
         
@@ -26,14 +26,14 @@ final class RecipeViewModelTests: XCTestCase {
         //waitForExpectations(timeout: 1.0, handler: nil)
         wait(for: [errorStateExpectation], timeout: 1.0)
         //3. then
-        XCTAssertTrue(isErrorStatetriggered, "Should trigger error state")
+        XCTAssertTrue(isErrorStateTriggered, "Should trigger error state")
     }
     
     func test_when_fetchingSuccessful_shouldHaveReadyState() {
         //1. given
-        let useCase =  RecipeUseCaesMock()
-        let recipeies = getMockRecipeResponse()
-        useCase.fetchRecipesResult = .success(recipeies)
+        let useCase = RecipeUseCaseMock()
+        let recipes = getMockRecipeResponse()
+        useCase.fetchRecipesResult = .success(recipes)
         let viewModel = RecipeViewModel(with: useCase, navigator: navigator)
         viewModel.delegate = self
         
@@ -43,20 +43,20 @@ final class RecipeViewModelTests: XCTestCase {
         //waitForExpectations(timeout: 1.0, handler: nil)
         wait(for: [readyStateExpectation], timeout: 1.0)
         //3. then
-        XCTAssertTrue(isReadyStatetriggered, "Should trigger ready state")
+        XCTAssertTrue(isReadyStateTriggered, "Should trigger ready state")
     }
     
     func test_selection_recipe() {
         //1. given
-        let useCase =  RecipeUseCaesMock()
-        let recipeies = getMockRecipeResponse()
-        useCase.fetchRecipesResult = .success(recipeies)
+        let useCase = RecipeUseCaseMock()
+        let recipes = getMockRecipeResponse()
+        useCase.fetchRecipesResult = .success(recipes)
         let viewModel = RecipeViewModel(with: useCase, navigator: navigator)
         viewModel.delegate = self
         
         //2. when
         viewModel.load()
-        viewModel.switchRecipeSelection(at: 0)
+        viewModel.recipeDidSelect(at: 0)
         
         //then
         XCTAssertEqual(viewModel.row(at: 0).selectionState, .selected)
@@ -64,60 +64,59 @@ final class RecipeViewModelTests: XCTestCase {
     
     func test_deSelection_recipe() {
         //1. given
-        let useCase =  RecipeUseCaesMock()
-        let recipeies = getMockRecipeResponse()
-        useCase.fetchRecipesResult = .success(recipeies)
+        let useCase = RecipeUseCaseMock()
+        let recipes = getMockRecipeResponse()
+        useCase.fetchRecipesResult = .success(recipes)
         let viewModel = RecipeViewModel(with: useCase, navigator: navigator)
         viewModel.delegate = self
         
         //2. when
         viewModel.load()
-        viewModel.switchRecipeSelection(at: 0)
+        viewModel.recipeDidSelect(at: 0)
         //switch again
-        viewModel.switchRecipeSelection(at: 0)
+        viewModel.recipeDidSelect(at: 0)
         
         //then
         XCTAssertEqual(viewModel.row(at: 0).selectionState, .unselected)
     }
     
-    //test selection shouldn't exceeed 5
     func test_selection_recipe_limit() {
         
         //1. given
-        let useCase =  RecipeUseCaesMock()
-        let recipeies = getMockRecipeResponse()
-        useCase.fetchRecipesResult = .success(recipeies)
+        let useCase = RecipeUseCaseMock()
+        let recipes = getMockRecipeResponse()
+        useCase.fetchRecipesResult = .success(recipes)
         let viewModel = RecipeViewModel(with: useCase, navigator: navigator)
         viewModel.delegate = self
         
         //2. when
         viewModel.load()
-        viewModel.switchRecipeSelection(at: 0)
+        viewModel.recipeDidSelect(at: 0)
         
         //then
-        let numberofSelections = viewModel.numberOfSelections()
-        XCTAssertLessThanOrEqual(numberofSelections, 5)
+        let numberOfSelections = viewModel.numberOfSelections()
+        XCTAssertLessThanOrEqual(numberOfSelections, 5)
     }
     
     override func tearDown() {
-        isReadyStatetriggered = false
-        isErrorStatetriggered = false
+        isReadyStateTriggered = false
+        isErrorStateTriggered = false
         super.tearDown()
     }
 }
 //MARK: ViewModel Delegates
 extension RecipeViewModelTests: RecipeViewModelDelegate {
     func onViewModelReady() {
-        isReadyStatetriggered = true
+        isReadyStateTriggered = true
         readyStateExpectation.fulfill()
     }
     
     func onViewModelError(with error: Error) {
-        isErrorStatetriggered = true
+        isErrorStateTriggered = true
         errorStateExpectation.fulfill()
     }
     
-    func onViewModelNeedsUpdate(at index: Int) {
+    func onViewModelNeedsUpdate(at index: IndexPath) {
         //
     }
 }
