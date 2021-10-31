@@ -126,7 +126,7 @@ extension RecipeViewModelTests: RecipeViewModelDelegate {
 extension RecipeViewModelTests {
     private func getMockRecipeResponse() -> [Recipe] {
         do {
-            let path = Bundle(for: RecipeViewControllerTests.self).path(forResource: "Recipes", ofType: "json")!
+            let path = Bundle(for: RecipeViewModelTests.self).path(forResource: "Recipes", ofType: "json")!
             let data = try Data(contentsOf: URL(fileURLWithPath: path))
             return try JSONDecoder().decode([Recipe].self, from: data)
         } catch {
