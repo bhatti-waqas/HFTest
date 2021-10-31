@@ -8,7 +8,6 @@
 import Foundation
 
 final class NetworkRecipeUseCase {
-    
     // MARK:- Private Properties
     private let networkService: NetworkServiceProtocol
     

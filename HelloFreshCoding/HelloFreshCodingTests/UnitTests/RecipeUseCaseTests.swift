@@ -8,8 +8,7 @@
 import XCTest
 @testable import HelloFreshCoding
 
-class RecipeUseCaseTests: XCTestCase {
-    
+final class RecipeUseCaseTests: XCTestCase {
     private let networkService = NetworkServiceMock()
     private var useCase: RecipeUseCase!
     

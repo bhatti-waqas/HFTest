@@ -7,37 +7,28 @@
 
 import Foundation
 
-public enum SelectionError: LocalizedError {
-    // Error cases
-    case maxLimitReached
-    
-    public var errorDescription: String? {
-        switch self {
-        case .maxLimitReached:
-            return "You can select only upto 5 recipes."
-        }
-    }
-}
-
-final class RecipeViewModel: BaseViewModel {
-    
+final class RecipeViewModel {
     private struct Config {
         static let maxSelectionAllowed = 5
     }
-
+    
+    public weak var delegate : RecipeViewModelDelegate?
+    private var ready:Bool = false
+    private var loading:Bool = false
+    
     let screenTitle = "Recipes"
     private let recipeUseCase: RecipeUseCase
-    private unowned let navigator: RecipeCoordinator
+    private unowned let navigator: RecipeNavigator
     private var recipeRowViewModels: [RecipeRowViewModel] = []
     
-    
-    init(with useCase: RecipeUseCase, navigator: RecipeCoordinator) {
+    init(with useCase: RecipeUseCase, navigator: RecipeNavigator) {
         self.recipeUseCase = useCase
         self.navigator = navigator
     }
     
-    override func load(with delegate: BaseViewModelDelegate) {
-        super.load(with: delegate)
+    //MARK:- Public methods
+    public func load() {
+        self.loading = true
         recipeUseCase.fetchRecipes(then: { [weak self] result in
             guard let self = self else { return }
             switch result {
@@ -50,6 +41,52 @@ final class RecipeViewModel: BaseViewModel {
             }
         })
     }
+        
+    public func makeReady() {
+        self.ready = true
+        self.loading = false
+        self.delegate?.onViewModelReady()
+    }
+    
+    public func numberOfRows() -> Int {
+        recipeRowViewModels.count
+    }
+    
+    public func numberOfSections() -> Int {
+        return 1
+    }
+    
+    public func row(at index: Int) -> RecipeRowViewModel {
+        recipeRowViewModels[index]
+    }
+    
+    public func numberOfSelections() -> Int {
+        let selectedRecipes = recipeRowViewModels.filter{ $0.selectionState == .selected }
+        return selectedRecipes.count
+    }
+    
+    public func switchRecipeSelection(at index: Int) {
+        let rowViewModel = recipeRowViewModels[index]
+        if rowViewModel.selectionState == .selected {
+            rowViewModel.selectionState = .unselected
+        } else {
+            guard canSelectRecipe() else {
+                self.throwError(with: SelectionError.maxLimitReached)
+                return
+            }
+            rowViewModel.selectionState = .selected
+        }
+        self.delegate?.onViewModelNeedsUpdate(at: index)
+    }
+    
+    public func throwError(with error: Error) {
+        //In some cases we are receving errors from background threads.
+        //We need to make sure we use main thread since we are going to interact with UI
+        Run.onMainThread {
+            self.loading = false
+            self.delegate?.onViewModelError(with: error)
+        }
+    }
     
     //MARK:- Private methods
     private func makeRecipeRowViewModel(with recipe: Recipe) -> RecipeRowViewModel {
@@ -57,40 +94,6 @@ final class RecipeViewModel: BaseViewModel {
     }
     
     private func canSelectRecipe() -> Bool {
-        let selectedRecipes = recipeRowViewModels.filter{ $0.selctionState == .selected }
-        return selectedRecipes.count < Config.maxSelectionAllowed
-    }
-    
-    //MARK:- Public methods
-    public func getRecipeRowViewModels() -> [RecipeRowViewModel] {
-        return recipeRowViewModels
-    }
-    
-    public func getRecipeRowViewModel(at index: Int) -> RecipeRowViewModel? {
-        return recipeRowViewModels[safe: index]
-    }
-    
-    public func switchRecipeSelection(at index: Int) {
-        guard let rowViewModel = recipeRowViewModels[safe: index] else { return }
-        if rowViewModel.selctionState == .selected {
-            rowViewModel.selctionState = .unselected
-        } else {
-            guard canSelectRecipe() else {
-                self.throwError(with: SelectionError.maxLimitReached)
-                return
-            }
-            
-            rowViewModel.selctionState = .selected
-        }
-        self.delegate?.onViewModelNeedsUpdate(self)
-    }
-    
-    //its helping us for testcases
-    public func setRecipeViewModels(viewModels: [RecipeRowViewModel]) {
-        self.recipeRowViewModels.removeAll()
-        self.recipeRowViewModels = viewModels
+        return numberOfSelections() < Config.maxSelectionAllowed
     }
 }
-
-
-                    

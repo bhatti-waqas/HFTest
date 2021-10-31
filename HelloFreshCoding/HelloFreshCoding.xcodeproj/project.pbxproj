@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		772E800B272E9E06004FB38C /* RecipeNavigatorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772E800A272E9E06004FB38C /* RecipeNavigatorMock.swift */; };
+		772E800D272EB45B004FB38C /* RecipeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772E800C272EB45B004FB38C /* RecipeViewModelTests.swift */; };
+		772E800F272EB5BF004FB38C /* RecipeUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772E800E272EB5BF004FB38C /* RecipeUseCaseMock.swift */; };
 		776BECFE272AB290001A1688 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BECFD272AB290001A1688 /* Int.swift */; };
 		776BED01272AB6DD001A1688 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 776BED00272AB6DD001A1688 /* SDWebImage */; };
 		776BED03272AB6E9001A1688 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BED02272AB6E9001A1688 /* UIImageView.swift */; };
@@ -37,14 +40,13 @@
 		77C4AEF9272A9B96002DDE82 /* RecipeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C4AEF8272A9B96002DDE82 /* RecipeUseCase.swift */; };
 		77C4AEFC272A9BDD002DDE82 /* NetworkRecipeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C4AEFB272A9BDD002DDE82 /* NetworkRecipeUseCase.swift */; };
 		77C4AEFE272AA58B002DDE82 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C4AEFD272AA58B002DDE82 /* NetworkError.swift */; };
-		77C4AF00272AA877002DDE82 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C4AEFF272AA877002DDE82 /* BaseViewModel.swift */; };
+		77C4AF00272AA877002DDE82 /* RecipeViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C4AEFF272AA877002DDE82 /* RecipeViewModelDelegate.swift */; };
 		77C4AF03272AA970002DDE82 /* Run.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C4AF02272AA970002DDE82 /* Run.swift */; };
 		77C4AF06272AAA76002DDE82 /* RecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C4AF05272AAA76002DDE82 /* RecipeViewModel.swift */; };
 		77C4AF08272AAD9F002DDE82 /* RecipeRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C4AF07272AAD9F002DDE82 /* RecipeRowViewModel.swift */; };
 		77EA453F272C094000F84362 /* RecipeUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EA453E272C094000F84362 /* RecipeUseCaseTests.swift */; };
 		77EA4542272C0A4000F84362 /* NetworkServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EA4541272C0A4000F84362 /* NetworkServiceMock.swift */; };
 		77EA4547272C0F1E00F84362 /* Recipes.json in Resources */ = {isa = PBXBuildFile; fileRef = 77EA4546272C0F1E00F84362 /* Recipes.json */; };
-		77EA4549272C126500F84362 /* RecipeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EA4548272C126500F84362 /* RecipeViewControllerTests.swift */; };
 		77EA454B272C217B00F84362 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EA454A272C217B00F84362 /* UIViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,16 +58,12 @@
 			remoteGlobalIDString = 77C4AE9B2729E1D5002DDE82;
 			remoteInfo = HelloFreshCoding;
 		};
-		77C4AEBD2729E1D8002DDE82 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 77C4AE942729E1D5002DDE82 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 77C4AE9B2729E1D5002DDE82;
-			remoteInfo = HelloFreshCoding;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		772E800A272E9E06004FB38C /* RecipeNavigatorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeNavigatorMock.swift; sourceTree = "<group>"; };
+		772E800C272EB45B004FB38C /* RecipeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModelTests.swift; sourceTree = "<group>"; };
+		772E800E272EB5BF004FB38C /* RecipeUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeUseCaseMock.swift; sourceTree = "<group>"; };
 		776BECFD272AB290001A1688 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		776BED02272AB6E9001A1688 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		776BED04272AB804001A1688 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -82,7 +80,6 @@
 		77C4AEAB2729E1D8002DDE82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		77C4AEAD2729E1D8002DDE82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77C4AEB22729E1D8002DDE82 /* HelloFreshCodingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HelloFreshCodingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		77C4AEBC2729E1D8002DDE82 /* HelloFreshCodingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HelloFreshCodingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		77C4AED62729E3C2002DDE82 /* Recipe.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Recipe.storyboard; sourceTree = "<group>"; };
 		77C4AED82729EA2C002DDE82 /* RecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewController.swift; sourceTree = "<group>"; };
 		77C4AEDB2729EB48002DDE82 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
@@ -99,14 +96,13 @@
 		77C4AEF8272A9B96002DDE82 /* RecipeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeUseCase.swift; sourceTree = "<group>"; };
 		77C4AEFB272A9BDD002DDE82 /* NetworkRecipeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRecipeUseCase.swift; sourceTree = "<group>"; };
 		77C4AEFD272AA58B002DDE82 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
-		77C4AEFF272AA877002DDE82 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		77C4AEFF272AA877002DDE82 /* RecipeViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModelDelegate.swift; sourceTree = "<group>"; };
 		77C4AF02272AA970002DDE82 /* Run.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Run.swift; sourceTree = "<group>"; };
 		77C4AF05272AAA76002DDE82 /* RecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModel.swift; sourceTree = "<group>"; };
 		77C4AF07272AAD9F002DDE82 /* RecipeRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeRowViewModel.swift; sourceTree = "<group>"; };
 		77EA453E272C094000F84362 /* RecipeUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeUseCaseTests.swift; sourceTree = "<group>"; };
 		77EA4541272C0A4000F84362 /* NetworkServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceMock.swift; sourceTree = "<group>"; };
 		77EA4546272C0F1E00F84362 /* Recipes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Recipes.json; sourceTree = "<group>"; };
-		77EA4548272C126500F84362 /* RecipeViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewControllerTests.swift; sourceTree = "<group>"; };
 		77EA454A272C217B00F84362 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,13 +116,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		77C4AEAF2729E1D8002DDE82 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		77C4AEB92729E1D8002DDE82 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -175,7 +164,6 @@
 			children = (
 				77C4AE9C2729E1D5002DDE82 /* HelloFreshCoding.app */,
 				77C4AEB22729E1D8002DDE82 /* HelloFreshCodingTests.xctest */,
-				77C4AEBC2729E1D8002DDE82 /* HelloFreshCodingUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -241,6 +229,7 @@
 				77C4AED62729E3C2002DDE82 /* Recipe.storyboard */,
 				77C4AED82729EA2C002DDE82 /* RecipesViewController.swift */,
 				77C4AEEC272A9934002DDE82 /* RecipeCoordinator.swift */,
+				77C4AEFF272AA877002DDE82 /* RecipeViewModelDelegate.swift */,
 				77C4AF05272AAA76002DDE82 /* RecipeViewModel.swift */,
 			);
 			path = Recipe;
@@ -265,7 +254,6 @@
 		77C4AEE5272A9868002DDE82 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				77C4AF04272AAA67002DDE82 /* ViewModel */,
 				77C4AF01272AA965002DDE82 /* Utils */,
 				77C4AEDA2729EB2E002DDE82 /* Extensions */,
 				77C4AEE6272A9887002DDE82 /* Coordinator */,
@@ -343,19 +331,11 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		77C4AF04272AAA67002DDE82 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				77C4AEFF272AA877002DDE82 /* BaseViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		77EA453D272C090800F84362 /* UnitTests */ = {
 			isa = PBXGroup;
 			children = (
 				77EA453E272C094000F84362 /* RecipeUseCaseTests.swift */,
-				77EA4548272C126500F84362 /* RecipeViewControllerTests.swift */,
+				772E800C272EB45B004FB38C /* RecipeViewModelTests.swift */,
 			);
 			path = UnitTests;
 			sourceTree = "<group>";
@@ -364,6 +344,8 @@
 			isa = PBXGroup;
 			children = (
 				77EA4541272C0A4000F84362 /* NetworkServiceMock.swift */,
+				772E800A272E9E06004FB38C /* RecipeNavigatorMock.swift */,
+				772E800E272EB5BF004FB38C /* RecipeUseCaseMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -417,24 +399,6 @@
 			productReference = 77C4AEB22729E1D8002DDE82 /* HelloFreshCodingTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		77C4AEBB2729E1D8002DDE82 /* HelloFreshCodingUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 77C4AECC2729E1D8002DDE82 /* Build configuration list for PBXNativeTarget "HelloFreshCodingUITests" */;
-			buildPhases = (
-				77C4AEB82729E1D8002DDE82 /* Sources */,
-				77C4AEB92729E1D8002DDE82 /* Frameworks */,
-				77C4AEBA2729E1D8002DDE82 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				77C4AEBE2729E1D8002DDE82 /* PBXTargetDependency */,
-			);
-			name = HelloFreshCodingUITests;
-			productName = HelloFreshCodingUITests;
-			productReference = 77C4AEBC2729E1D8002DDE82 /* HelloFreshCodingUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -449,10 +413,6 @@
 						CreatedOnToolsVersion = 13.0;
 					};
 					77C4AEB12729E1D8002DDE82 = {
-						CreatedOnToolsVersion = 13.0;
-						TestTargetID = 77C4AE9B2729E1D5002DDE82;
-					};
-					77C4AEBB2729E1D8002DDE82 = {
 						CreatedOnToolsVersion = 13.0;
 						TestTargetID = 77C4AE9B2729E1D5002DDE82;
 					};
@@ -476,7 +436,6 @@
 			targets = (
 				77C4AE9B2729E1D5002DDE82 /* HelloFreshCoding */,
 				77C4AEB12729E1D8002DDE82 /* HelloFreshCodingTests */,
-				77C4AEBB2729E1D8002DDE82 /* HelloFreshCodingUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -497,13 +456,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				77EA4547272C0F1E00F84362 /* Recipes.json in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		77C4AEBA2729E1D8002DDE82 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,7 +481,7 @@
 				77C4AEE02729ED05002DDE82 /* UITableViewCell.swift in Sources */,
 				77C4AEEA272A98CE002DDE82 /* BaseCoordinator.swift in Sources */,
 				776BED05272AB804001A1688 /* AppCoordinator.swift in Sources */,
-				77C4AF00272AA877002DDE82 /* BaseViewModel.swift in Sources */,
+				77C4AF00272AA877002DDE82 /* RecipeViewModelDelegate.swift in Sources */,
 				77C4AEDC2729EB48002DDE82 /* UIStoryboard+Extension.swift in Sources */,
 				77C4AEDE2729ECC8002DDE82 /* UITableView+Extension.swift in Sources */,
 				77C4AEF6272A9A8A002DDE82 /* Recipe.swift in Sources */,
@@ -553,15 +505,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				77EA453F272C094000F84362 /* RecipeUseCaseTests.swift in Sources */,
+				772E800B272E9E06004FB38C /* RecipeNavigatorMock.swift in Sources */,
 				77EA4542272C0A4000F84362 /* NetworkServiceMock.swift in Sources */,
-				77EA4549272C126500F84362 /* RecipeViewControllerTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		77C4AEB82729E1D8002DDE82 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				772E800F272EB5BF004FB38C /* RecipeUseCaseMock.swift in Sources */,
+				772E800D272EB45B004FB38C /* RecipeViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,11 +519,6 @@
 			isa = PBXTargetDependency;
 			target = 77C4AE9B2729E1D5002DDE82 /* HelloFreshCoding */;
 			targetProxy = 77C4AEB32729E1D8002DDE82 /* PBXContainerItemProxy */;
-		};
-		77C4AEBE2729E1D8002DDE82 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 77C4AE9B2729E1D5002DDE82 /* HelloFreshCoding */;
-			targetProxy = 77C4AEBD2729E1D8002DDE82 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -812,50 +754,6 @@
 			};
 			name = Release;
 		};
-		77C4AECD2729E1D8002DDE82 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.swiftui.text.HelloFreshCodingUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = HelloFreshCoding;
-			};
-			name = Debug;
-		};
-		77C4AECE2729E1D8002DDE82 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.swiftui.text.HelloFreshCodingUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = HelloFreshCoding;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -882,15 +780,6 @@
 			buildConfigurations = (
 				77C4AECA2729E1D8002DDE82 /* Debug */,
 				77C4AECB2729E1D8002DDE82 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		77C4AECC2729E1D8002DDE82 /* Build configuration list for PBXNativeTarget "HelloFreshCodingUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				77C4AECD2729E1D8002DDE82 /* Debug */,
-				77C4AECE2729E1D8002DDE82 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

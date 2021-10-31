@@ -12,20 +12,20 @@ enum SelecttionState {
     case unselected
 }
 
-class RecipeRowViewModel {
+final class RecipeRowViewModel {
     let id: String
     let name: String
     let headline: String
     let image: String
     let preparationMinutes: Int
-    var selctionState: SelecttionState
+    var selectionState: SelecttionState
     
-    init(id: String, name: String, headline: String, image: String, preparationMinutes: Int, selctionState: SelecttionState = .unselected) {
+    init(id: String, name: String, headline: String, image: String, preparationMinutes: Int, selectionState: SelecttionState = .unselected) {
         self.id = id
         self.name = name
         self.headline = headline
         self.image = image
         self.preparationMinutes = preparationMinutes
-        self.selctionState = selctionState
+        self.selectionState = selectionState
     }
 }

@@ -15,3 +15,9 @@ final class RecipeCoordinator: BaseCoordinator<AppNavigationController> {
         rootViewController.pushViewController(recipeViewController, animated: true)
     }
 }
+
+extension RecipeCoordinator: RecipeNavigator {
+    func showRecipeDetail() {
+        //might be required later
+    }
+}

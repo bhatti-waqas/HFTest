@@ -8,7 +8,6 @@
 import UIKit
 
 final class RecipesViewController: UITableViewController {
-    
     // MARK:- Private Properties
     private let viewModel: RecipeViewModel
     private let spinner = UIActivityIndicatorView(style: .large)
@@ -26,7 +25,8 @@ final class RecipesViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        viewModel.load(with: self)
+        viewModel.delegate = self
+        viewModel.load()
     }
     
     private func configureUI() {
@@ -44,40 +44,39 @@ final class RecipesViewController: UITableViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return viewModel.numberOfSections()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.getRecipeRowViewModels().count
+        return viewModel.numberOfRows()
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: RecipeTableViewCell = tableView.dequeue(for: indexPath)
-        guard let viewModel = viewModel.getRecipeRowViewModel(at: indexPath.row) else { return cell }
+        let viewModel = viewModel.row(at: indexPath.row)
         cell.configure(with: viewModel)
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.switchRecipeSelection(at: indexPath.row)
-        tableView.reloadRows(at: [indexPath], with: .none)
     }
     
 }
 //MARK: ViewModel Delegates
-extension RecipesViewController: BaseViewModelDelegate {
+extension RecipesViewController: RecipeViewModelDelegate {
     
-    func onViewModelReady(_ viewModel: BaseViewModel) {
+    func onViewModelReady() {
         self.reload()
     }
     
-    func onViewModelError(_ viewModel: BaseViewModel, error: Error) {
-        //handle error
+    func onViewModelError(with error: Error) {
         presentAlert(error.localizedDescription)
     }
     
-    func onViewModelNeedsUpdate(_ viewModel: BaseViewModel) {
-        //needs to udpate
+    func onViewModelNeedsUpdate(at index: Int) {
+        let indexPath = IndexPath(item: index, section: 0)
+        self.tableView.reloadRows(at: [indexPath], with: .none)
     }
 }
 

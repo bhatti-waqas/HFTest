@@ -37,6 +37,6 @@ final class RecipeTableViewCell: UITableViewCell {
         headlineLabel.text = viewModel.headline
         durationLabel.text = viewModel.preparationMinutes.toString()
         recipeImageview.setImage(with: URL(string: viewModel.image))
-        containerView.layer.borderWidth = viewModel.selctionState == .selected ? 2 : 0
+        containerView.layer.borderWidth = viewModel.selectionState == .selected ? 2 : 0
     }
 }
