@@ -5,7 +5,7 @@ HelloFresh Codding test,  iOS test application. Get a list of recipes from api a
 ## Technical Stack
 
 ### Enviroment
-- Xcode 14.0
+- Xcode 13.0
 - Swift 5.0.0
 
 ### Dependencies
@@ -27,4 +27,4 @@ This project uses Swift Package Manager [SPM](https://swift.org/package-manager/
 
 ## Getting Started
 ### Getting the project
-- The project can be cloned from https://github.com/hellofreshdevtests/bhatti-waqas-ios-test-3.0.git
+- The project can be cloned from https://github.com/bhatti-waqas/HFTest.git
